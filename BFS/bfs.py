@@ -36,36 +36,24 @@ class Graph:
         for key in sorted(list(self.vertices.keys())):
             print(key + "'s neighbors are " + str(self.vertices[key].neighbors)+ "and the distance from Root vertex is " + str(self.vertices[key].distance))
 
-    # def bfs(self, root_vertex):
-    #     queue = []
-    #     root_vertex.distance = 0
-    #     root_vertex.color = "red"
-    #
-    #     for neighbors in root_vertex.neighbors:
-    #         self.vertices[neighbors].distance = root_vertex.distance + 1
-    #         queue.append(neighbors)
-    #
-    #     while len(queue) > 0:
-    #         u = queue.pop(0)
-    #         node_u =
+    def bfs(self, root_vertex):
+        queue = []
+        root_vertex.distance = 0
+        root_vertex.color = "red"
 
-    def bfs(self, vert):
-        q = list()
-        vert.distance = 0
-        vert.color = 'red'
-        for v in vert.neighbors:
-            self.vertices[v].distance = vert.distance + 1
-            q.append(v)
+        for neighbors in root_vertex.neighbors:
+            self.vertices[neighbors].distance = root_vertex.distance + 1
+            queue.append(neighbors)
 
-        while len(q) > 0:
-            u = q.pop(0)
+        while len(queue) > 0:
+            u = queue.pop(0)
             node_u = self.vertices[u]
             node_u.color = 'red'
 
             for v in node_u.neighbors:
                 node_v = self.vertices[v]
                 if node_v.color == 'black':
-                    q.append(v)
+                    queue.append(v)
                     if node_v.distance > node_u.distance + 1:
                         node_v.distance = node_u.distance + 1
 
@@ -74,7 +62,7 @@ g = Graph()
 a = Vertex('A')
 g.add_vertex(a)
 g.add_vertex(Vertex('B'))
-for i in range(ord('A'), ord('K')):
+for i in range(ord('C'), ord('K')):
     g.add_vertex(Vertex(chr(i)))
 
 edges = ['AB', 'AE', 'BF', 'CG', 'DE', 'DH', 'EH', 'FG', 'FI', 'FJ', 'GJ', 'HI']
