@@ -34,7 +34,7 @@ class Graph:
 
     def print_graph(self):
         for key in sorted(list(self.vertices.keys())):
-            print(key + "'s neighbors are " + str(self.vertices[key].neighbors)+ "and the distance from Root vertex is " + str(self.vertices[key].distance))
+            print(key + "'s neighbors are " + str(self.vertices[key].neighbors)+ " and the distance from Root vertex is " + str(self.vertices[key].distance))
 
     def bfs(self, root_vertex):
         queue = []
@@ -59,15 +59,13 @@ class Graph:
 
 
 g = Graph()
-a = Vertex('A')
-g.add_vertex(a)
-g.add_vertex(Vertex('B'))
-for i in range(ord('C'), ord('K')):
+for i in range(ord('A'), ord('K')):
     g.add_vertex(Vertex(chr(i)))
 
 edges = ['AB', 'AE', 'BF', 'CG', 'DE', 'DH', 'EH', 'FG', 'FI', 'FJ', 'GJ', 'HI']
 for edge in edges:
     g.add_edge(edge[:1], edge[1:])
 
-g.bfs(a)
+f = g.vertices["A"]
+g.bfs(f)
 g.print_graph()
