@@ -1,3 +1,7 @@
+#pip install mysql-connector-python
+#Need to install this to connect with the database
+#This file is used to add data from csv files to a database
+
 import mysql.connector as MySQL
 import mysql.connector as errorcode
 import os
